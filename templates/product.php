@@ -1,6 +1,6 @@
 <?php foreach ($array as $productItem) : ?>
 
-<article class="<?= $class ?>" tabindex="0">
+<article class="<?= $class ?>" tabindex="<?= $productItem['id'] ?>">
     <div class="product__image">
       <img src="/img/products/<?= $productItem['image'] ?>" alt="<?= $productItem['name'] ?>">
     </div>

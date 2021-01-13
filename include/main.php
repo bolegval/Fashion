@@ -2,7 +2,6 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/include/connection.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/include/authorization.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/include/addProduct.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/include/addOrders.php');
 
 /**
  * Функция запроса в БД, для вывода списков
@@ -330,4 +329,16 @@ function getDeliveryInfo($value = "delivery") {
     return $array[$value];
 
     mysqli_close(connect());
+}
+
+if (isset($_POST['productId'])) {
+    $price = null;
+
+    foreach ($products as $product) {
+        if ($product['id'] == $_POST['productId']) {
+            $price = $product['price'];
+        }
+    }
+    
+    echo $price;
 }

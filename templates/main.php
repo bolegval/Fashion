@@ -68,7 +68,8 @@
   <section class="shop-page__order" hidden="">
     <div class="shop-page__wrapper">
       <h2 class="h h--1">Оформление заказа</h2>
-      <form action="/" method="post" class="custom-form js-order">
+      <form  method="post" class="custom-form js-order">
+        <input type="hidden" name="price">
         <fieldset class="custom-form__group">
           <legend class="custom-form__title">Укажите свои личные данные</legend>
           <p class="custom-form__info">

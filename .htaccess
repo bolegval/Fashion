@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+ErrorDocument 404 /404.php
+
+php_value error_reporting -1
+php_value display_errors on

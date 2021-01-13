@@ -108,6 +108,17 @@ if (shopList) {
 
   shopList.addEventListener('click', (evt) => {
 
+    let id = evt.target.getAttribute('tabindex');
+    $.ajax({
+      type: "POST",
+      url: "/include/main.php",
+      data: 'productId=' + id,
+      success: function(result) {
+        $('input[name=price]').val(result);
+      }
+    });
+    
+
     const prod = evt.path || (evt.composedPath && evt.composedPath());;
 
     if (prod.some(pathItem => pathItem.classList && pathItem.classList.contains('shop__item'))) {
@@ -152,7 +163,14 @@ if (shopList) {
 
         if (inputs.every(inp => !!inp.value)) {
 
-         // evt.preventDefault();
+          evt.preventDefault();
+
+          let $data = $(form);
+          $.ajax({
+            type: "POST",
+            url: "/include/addOrders.php",
+            data: $data.serialize(),
+          });
 
           toggleHidden(shopOrder, popupEnd);
 
